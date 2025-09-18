@@ -125,7 +125,31 @@ public class Board {
 
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                System.out.print(renderGrid[y][x]);
+                char cell = renderGrid[y][x];
+                String coloredCell;
+
+                switch (cell) {
+                    case '@': // Player
+                        coloredCell = Color.player(String.valueOf(cell));
+                        break;
+                    case 'M': // Monster
+                        coloredCell = Color.monster(String.valueOf(cell));
+                        break;
+                    case '$': // Treasure
+                        coloredCell = Color.treasure(String.valueOf(cell));
+                        break;
+                    case '#': // Wall
+                        coloredCell = Color.wall(String.valueOf(cell));
+                        break;
+                    case '.': // Floor
+                        coloredCell = Color.floor(String.valueOf(cell));
+                        break;
+                    default:
+                        coloredCell = String.valueOf(cell);
+                        break;
+                }
+
+                System.out.print(coloredCell);
             }
             System.out.println();
         }

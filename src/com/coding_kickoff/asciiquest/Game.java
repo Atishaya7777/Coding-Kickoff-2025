@@ -178,10 +178,10 @@ public class Game {
     }
 
     /**
-     * One of three options:
+     * One of two options:
      * 1. Player dies.
      * 2. Player gets all of the treasures.
-     * 3. Player defeats all of the monsters
+     * It's all or nothing baby.
      */
     private boolean checkGameEnd() {
         if (!player.isAlive()) {
@@ -194,14 +194,6 @@ public class Game {
             gameRunning = false;
             playerWon = true;
             System.out.println("Congratulations! You collected all the treasure!");
-            Utils.sleep(2000);
-            return true;
-        }
-
-        if (board.getAliveMonsterCount() == 0) {
-            gameRunning = false;
-            playerWon = true;
-            System.out.println("Amazing! You defeated all the monsters!");
             Utils.sleep(2000);
             return true;
         }
